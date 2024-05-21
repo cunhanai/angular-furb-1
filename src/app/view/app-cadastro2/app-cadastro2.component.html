@@ -1,0 +1,15 @@
+<section>
+    <button (click)="carregaFotos()">Carrega fotos</button>
+</section>
+<section>
+    <input type="number" [(ngModel)]="vFotoId"><button (click)="buscaFoto(vFotoId)">Busca Foto</button>
+</section>
+
+<table>
+    <tr *ngFor="let foto of vetFotos">
+        <td>{{ foto.id }}</td>
+        <td>{{ foto.title }}</td>
+        <td><img src="{{ foto.thumbnailUrl}}"></td>
+    </tr>
+</table>
+<p>&nbsp;</p>

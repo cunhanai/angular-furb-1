@@ -1,0 +1,38 @@
+<p>Cadastro</p>
+
+<div>
+    <table>
+        <tr *ngFor="let pessoa of vetPessoas">
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.departamento }}</td>
+            <td><button (click)="vPessoa = pessoa">Altera</button></td>
+            <td><button (click)="mostraTamanho(pessoa.nome)">Mostra length</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    Pessoa: <span class="destaque">{{ vPessoa.nome+" - "+vPessoa.departamento }}</span>
+</div>
+<div>
+    <input type="text" [(ngModel)]="vPessoa.nome"><br>
+    <input type="text" [(ngModel)]="vPessoa.departamento"><br>
+    <input type="number" [(ngModel)]="vNumero">
+</div>
+<div *ngIf="vNumero > 0">
+    Valor positivo
+</div>
+<div *ngIf="vNumero == 0">
+    Valor zero
+</div>
+<div *ngIf="vNumero < 0">
+    Valor negativo
+</div>
+
+<div *ngIf="vNumero > 0; else outroBloco">
+    Valor positivo versão 2
+</div>
+<ng-template #outroBloco>
+    Valor não positivo versão 2
+</ng-template>
